@@ -1,0 +1,3 @@
+ERR188028_1	s3://fsimonetti-nfdata/fastqs/ERR188028_1.fastq.gz	s3://fsimonetti-nfdata/fastqs/ERR188028_2.fastq.gz
+ERR188035_1	s3://fsimonetti-nfdata/fastqs/ERR188035_1.fastq.gz	s3://fsimonetti-nfdata/fastqs/ERR188035_2.fastq.gz
+ERR188036_1	s3://fsimonetti-nfdata/fastqs/ERR188036_1.fastq.gz	s3://fsimonetti-nfdata/fastqs/ERR188036_2.fastq.gz
