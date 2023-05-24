@@ -8,6 +8,7 @@ workflow quant_leafcutter {
     
     main:
         bam_to_junc(bam_sorted_indexed)
-        cluster_introns(bam_to_junc.out.junc.map{it.toString()}.collectFile(name: 'junction_files.txt', newLine: true))
+        //cluster_introns(bam_to_junc.out.junc.map{it.toString()}.collectFile(name: 'junction_files.txt', newLine: true))
+        cluster_introns(bam_to_junc.out.junc.map{it.file().toString()}.collectFile(name: 'junction_files.txt', newLine: true))
 }
 
