@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 mypath="/mnf/efs/fs1/rnaseq/"
-mypath="/data/franco/rnaseq/"
+#mypath="/data/franco/rnaseq/"
 
 
 for f in `awk '{print $2}' $mypath/data/read_paths_GEUVADIS_GBR20.tsv`; do
