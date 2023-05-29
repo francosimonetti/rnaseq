@@ -49,7 +49,7 @@ process run_mbv {
 
     script:
     """
-    QTLtools mbv --vcf $vcf --bam $bam --out ${bam.simpleName}.mbv_output.txt
+    QTLtools mbv --vcf $vcf --bam $bam --out ${bam.simpleName}.mbv_output.txt --reg chr1
     """
 }
 
