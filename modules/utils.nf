@@ -43,6 +43,7 @@ process run_mbv {
     input:
     tuple file(bam), file(bam_index)
     path vcf 
+    path vcf_index
 
     output:
     path "${bam.simpleName}.mbv_output.txt"
