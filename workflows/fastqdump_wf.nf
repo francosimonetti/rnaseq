@@ -16,5 +16,6 @@ process fastq_dump_reads {
     fasterq-dump -3 ./$sra
     pigz -c ${name}_1.fastq > ${name}_1.fastq.gz
     pigz -c ${name}_2.fastq > ${name}_2.fastq.gz
+    rm ${name}_1.fastq ${name}_2.fastq
     """
 }
