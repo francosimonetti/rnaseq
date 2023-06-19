@@ -39,7 +39,7 @@ Channel
     .set { gtf_file }
 
 include { makeHisatSplicesites; trim_galore; makeHISATindex; hisat2Align; hisat2_sortOutput; sort_by_name_BAM } from '../modules/align'
-include { dump_fastq } from "fastqdump_wf.nf"
+include { fastq_dump_reads } from "./fastqdump_wf.nf"
 
 workflow {
     align_reads()
@@ -49,7 +49,7 @@ workflow align_reads {
     main:
         makeHisatSplicesites(gtf_file.collect())
         if(params.readSRRAccFile){
-            dump_fastq(raw_sra_run)
+            fastq_dump_reads(raw_sra_run)
             trim_galore(dump_fastq.out.fastq_reads)
         } else {
             trim_galore(raw_reads_trimgalore)
