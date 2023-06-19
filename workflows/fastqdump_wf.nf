@@ -3,7 +3,7 @@ nextflow.enable.dsl=2
 process fastq_dump_reads {
     tag "$name"
     //publishDir "${params.outdir}/fastq", mode: 'copy', pattern: "*.fastq.gz"
-    //container = 'quay.io/eqtlcatalogue/rnaseq:v20.11.1'
+    container = '774353128408.dkr.ecr.us-east-1.amazonaws.com/sra_fastq_dump_task'
 
     input:
     tuple val(name), file(sra) 
