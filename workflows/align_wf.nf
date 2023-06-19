@@ -50,7 +50,7 @@ workflow align_reads {
         makeHisatSplicesites(gtf_file.collect())
         if(params.readSRRAccFile){
             fastq_dump_reads(raw_sra_run)
-            trim_galore(dump_fastq.out.fastq_reads)
+            trim_galore(fastq_dump_reads.out.fastq_reads)
         } else {
             trim_galore(raw_reads_trimgalore)
         }
