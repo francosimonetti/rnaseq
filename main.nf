@@ -8,6 +8,7 @@ def helpMessage() {
 
     Mandatory arguments:
       --readPathsFile               Tab-seperated file with sample names and path to the fastq files. (Used if --reads not provided.)
+      --readSRRAccFile              Tab-seperated file with SRA names and path to the SRA file.
       -profile                      Configuration profile to use. tartu_hpc / singularity / docker / test 
 
     Additional quantification options:
@@ -69,6 +70,7 @@ def run_info_message() {
   def summary = [:]
   summary['Run Name']     = workflow.runName
   summary['ReadPathsFile']        = params.readPathsFile
+  summary['ReadSRRAccFile']       = params.readSRRAccFile
   summary['Data Type']    = params.singleEnd ? 'Single-End' : 'Paired-End'
   summary['Strandedness'] = ( params.unstranded ? 'None' : params.forward_stranded ? 'Forward' : params.reverse_stranded ? 'Reverse' : 'None' )
   summary['Trim R1'] = params.clip_r1
