@@ -14,7 +14,7 @@ if(params.readSRRAccFile) {
     Channel.fromPath(params.readSRRAccFile)
     .ifEmpty { error "Cannot find any readSRRAccFile file in: ${params.readSRRAccFile}" }
     .splitCsv(header: false, sep: '\t', strip: true)
-    .map{row -> [ row[0], file(row[1]) ]}
+    .map{row -> [ row[0], [ file(row[1]) ] ]}
     .set { raw_sra_run }
 
 } else {
