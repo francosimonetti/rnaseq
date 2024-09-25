@@ -133,6 +133,9 @@ process hisat2Align {
         """
     } else {
         """
+        # localTMPDIR=/tmp/`tr -dc A-Za-z0-9 </dev/urandom | head -c 13`
+        # mkdir -p \$localTMPDIR
+        # --temp-directory "\${localTMPDIR}" \\
         hisat2 -x $index_base \\
                 -1 ${reads[0]} \\
                 -2 ${reads[1]} \\
