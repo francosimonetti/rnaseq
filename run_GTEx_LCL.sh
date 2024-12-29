@@ -13,6 +13,16 @@ singularity pull singularity_img/quay.io-eqtlcatalogue-rnaseq_hisat2:v22.03.01 d
 ### Re-RUN WITH GTEX SAMPLE SHORT NAME, otherwise MBV doesn't find the chr region for the sample
 nextflow run main.nf -profile fil_hpc 
 
+## If you get an error like this
+#   (ERR): mkfifo(/tmp/43.inpipe1) failed.
+## It's due to when the pipeline fails or is cancelled, some file tmp descriptor remain open in the /tmp folder of some node
+## If the node is reused for the same task, even on another input, it will try to create the same file and it already exists.
+## The issue can be solved by deleting all /tmp file in all nodes before re-running the pipeline
+
+## As admin..
+for ((i=0; i<${num_computes}; i++)) ; do pdsh -w ${c_name[$i]} "for f in /tmp/*.inpipe*; do unlink \$f; done;" ; done
+
+ 
 ## MBV will fail if the genotypes do not match with respect to the reference genome. In this case "chr1" and "1".
 ## The reference genome provided here does not contain the 'chr' word
 ## So we make a special chromosome without the 'chr' and problem solved
